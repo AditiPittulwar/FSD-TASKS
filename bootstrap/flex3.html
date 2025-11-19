@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cat Cards</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .card-title {
+      color: red;
+      font-weight: bold;
+    }
+    .cat-card {
+      width: 300px;
+      margin: 10px;
+    }
+    .cat-img {
+      height: 200px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body class="bg-light py-4">
+
+  <div class="container d-flex flex-wrap justify-content-center">
+
+    <!-- Card 1 -->
+    <div class="card cat-card">
+      <img src="./cat3.jpg" class="card-img-top cat-img" alt="Whiskey">
+      <div class="card-body">
+        <h5 class="card-title">Whiskey</h5>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card cat-card">
+      <img src="./cat2.jpg" class="card-img-top cat-img" alt="Fluffy">
+      <div class="card-body">
+        <h5 class="card-title">Fluffy</h5>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card cat-card">
+      <img src="./cat1.jpeg" class="card-img-top cat-img" alt="Kitty">
+      <div class="card-body">
+        <h5 class="card-title">Kitty</h5>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

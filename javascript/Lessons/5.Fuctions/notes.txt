@@ -1,0 +1,91 @@
+
+// Defination :- A function in JavaScript is a block of code designed to perform a specific task.
+
+//*It runs only when it is called/invoked.
+
+//*Functions help in reusing code, making programs shorter and easier to manage.
+
+//Syntax:- function functionName(parameters) {
+  // code to be executed
+  return result; // optional
+}
+
+// Types to create a function / module
+
+// 1. Using function keyword
+
+function function_name(args[optional]){
+    //function body
+    // return statement(optional)
+}
+
+// 2. ES6(Arrow / Fat Arrow Functions, Modules, Callbacks)
+
+let function_name = (args[optional]){
+    //function body
+    // return statement(optional)
+}
+
+
+// Calling a function
+
+function_name(args[optional]);
+
+// Types of functions 
+
+// 1) No arguments, no return
+
+function greet(){
+    console.log("Hello!");
+}
+
+// 2) Arguments, but no return
+
+let name = "Avanti";
+
+function greet(name){
+    console.log("Hello "+name);
+}
+
+// 3) No arguments, return value
+
+function getNumber() {
+    return 10;
+}
+
+// 4) Arguments, Return value
+
+function sum(a, b) {
+    return a + b;
+}
+
+console.log(sum(1,2));
+
+
+// Function Declaration :
+//  A function declaration is simply the statement where you declare the function with its name, parameters, and body.
+// In JavaScript, a declaration automatically acts as a definition, because it includes the body.
+// Function declarations are hoisted → can be called before they are written. 
+
+// Function Declaration
+function greet(name) {
+    return "Hello " + name;
+}
+
+// Calling before declaration (works because of hoisting)
+console.log(greet("Aditi"));  // Output: Hello Saniya
+
+
+// Function Defination 
+
+// A function definition is the actual implementation (body) of the function.
+// It specifies what the function does.
+// In JavaScript, when we write a declaration with a body, it’s both declaration + definition at the same time.
+// Functions can also be defined using function expressions or arrow functions.
+
+// Function Definition (via expression)
+const greet = function(name) {
+    return "Hello " + name;
+};
+
+console.log(greet("Aditi")); // Output: Hello Aditi

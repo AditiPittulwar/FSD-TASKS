@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent{
+            height: 700px;
+            width: 600px;
+            display: flex;
+            flex-wrap: wrap;
+            background-color:rgb(6, 56, 44);
+            border: 8px solid rgb(67, 9, 9);
+            gap: 1rem;
+            row-gap: 0.4rem;
+            flex-wrap: wrap;
+            flex-direction: row;
+
+        }
+        .child1{
+            height: 100px;
+            width: 580px;
+            flex-basis: 580px;
+            background: rgb(100, 205, 30);
+            border-radius: 5px;
+            margin-left: 5px;
+            margin-right: 5px;
+            margin-top: 10px;
+
+        }
+        .child2{
+            height: 250px;
+            flex-basis: 250px;
+            background: rgb(161, 24, 141);
+            border-radius: 5px;
+            margin-left: 5px;
+
+        }
+        .child3{
+            height: 250px;
+            width: 310px;
+            background: rgb(197, 124, 47);
+            border-radius: 5px;
+            
+        }
+        .child4{
+            height: 150px;
+            flex-basis: 400px;
+            background: rgb(205, 50, 128);
+            margin-left: 10px;
+            border-radius: 5px;
+        }
+        .child5{
+            height: 150px;
+            flex-basis: 150px;
+            background: yellowgreen;
+            border-radius: 5px;
+
+        }
+        .child6{
+            height: 100px;
+            flex-basis:580px ;
+            background-color: aqua;
+            border-radius: 5px;
+        }
+        .afruit{
+            display: flex;
+            flex-direction: row;
+            width: 700px;
+            height: 600px;
+            border-radius: 5px;
+            box-sizing: border-box;
+            background-color: plum;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 10px;
+            border: 10px solid rgb(71, 10, 71);
+
+        }
+        .fruit{
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 250px;
+            background-color: lightblue;
+            border: 5px solid brown;
+            gap: 5px;
+
+        }
+        .fruit img{
+            width: 170px;
+            height: 180px;
+            border-radius: 10%;
+            border: 1px solid black;
+        }
+        .fruit1{
+            height: 200px;
+            width: 200px;
+            margin-top: 40PX;
+        }
+        .fruit2{
+            height: 200px;
+            margin-top: 40px;
+        }
+        .fruit3{
+            height: 200px;
+            margin-top: 40px;
+        }
+        .fruit4{
+            height: 200px;
+        }
+        .fruit5{
+            height: 200px;
+        }
+        .fruit{
+            height: 200px;
+        }
+        .pattern{
+            height: 450px;
+            width: 400px;
+            border: 3px solid rgb(8, 8, 74);
+            box-sizing: border-box;
+        }
+        .header{
+            width: 100%;
+            height: 60px;
+            background: linear-gradient(pink,red);
+            color: rgb(44, 18, 127);
+            font-size: 20px;
+        }
+        .flow{
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            gap: 15px;
+            color: darkblue;
+            font-size: 20px;
+            margin-bottom: 10px;
+
+        }
+        .content{
+            width: 50%;
+            height: 300px;
+            background: linear-gradient(yellowgreen,skyblue);
+        }
+        .sidebar{
+            width: 80%;
+            height: 300px;
+            background: linear-gradient(rgb(87, 223, 202),rgb(224, 122, 224));
+        }
+        .footer{
+            width: 100%;
+            height: 65px;
+            background: linear-gradient(lightpink,green)
+        }
+        .box{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-start;
+            align-content: space-between;
+            width: 300px;
+            height: 300px;
+            position: relative;
+        }
+        .box:after{
+            order: 3;
+            background-color: red;
+            width: 190px;
+            height: 50px;
+            margin: 5px;
+        
+        }
+        .item{
+            background-color: rgb(101,145,25);
+            width: 90px;
+            height: 90px;
+            margin: 5px;
+        }
+        .item:first-child{
+            width: 190px;
+            height: 190px;
+            margin-bottom: -100px;
+            order: 1;
+            opacity: 0.5;
+        }
+        .item:nth-child(2){
+            order: 2;
+        }
+        .item:ntn-child(n+3){
+            order: 4;
+        }
+        .key{
+            height: 500px;
+            width: 300px;
+            background-color: rgb(94,91,91);
+            color: black;
+            border: rgb(27,21,21);
+            display:flex;
+            gap: 5px;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-left: 10px;
+            margin-right: 10px;
+            justify-content: center;
+        }
+        .class{
+            height: 60px;
+            flex-basis: 60px;
+            margin-left: 5px;
+            margin-right: 5px;
+            border-radius: 10px;
+            border: solid rgb(39,34,34);
+            font-size: 3rem;
+            text-align: center;
+        }
+        .ch0{
+            margin-top: 14px;
+            height: 15px;
+            height: 50px;
+            flex-basis: 210px;
+        }
+        .ch10{
+            font-size: 2rem;
+        }
+        .ch12{
+            font-size: 2rem;
+        }
+
+        
+    </style>
+</head>
+<body> 
+    <fieldset>
+    <h2>Flex layout 1 </h2> 
+    <div class="parent">
+        <div class="child child1">1</div>
+        <div class="child child2">2</div>        
+        <div class="child child3">3</div>        
+        <div class="child child4">4</div>        
+        <div class="child child5">5</div>
+        <div class="child child6">6</div>
+    </div> 
+    </fieldset>
+    <fieldset>
+        <h2>Flex layout 2</h2>
+        <div class="afruit">
+        <div class="fruit fruit1"><img src="./redfru.jpg"></div>
+        <div class="fruit fruit2"><img src="./blackberries-still-attached-to-their-leaves.jpg"></div>        
+        <div class="fruit fruit3"><img src="./orangeimages.jpg"></div>
+        <div class="fruit fruit4"><img src="./fruit-kiwi.webp"></div>        
+        <div class="fruit fruit5"><img src="./mango.jpg"></div>
+        <div class="fruit fruit6"><img src="./all fruits.jpg"></div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <h2>Flex layout 3</h2>
+        <div class="pattern">
+            <div class="header"><centre>Header</centre></div>
+            <div class="flow">
+              <div class="content"><centre>Content</centre></div>
+              <div class="sidebar">sidebar</div>
+        </div>
+        <div class="box">
+        <div class="footer"><centre>Footer</centre></div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <h2>Flex layout 4</h2><br>
+        <h2>Key pad</h2>
+        <div class="box">
+            <div class="item">1</div>
+            <div class="item">2</div>            
+            <div class="item">3</div>
+            <div class="item">4</div>            
+            <div class="item">5</div>            
+            <div class="item">6</div>
+        </div>
+    </fieldset>
+    <fieldset>
+        <h2> Flex layout 5</h2>
+        <div class="key">
+                <div class=" class ch0"></div>
+                <div class=" class ch1">1</div>       
+                <div class=" class ch2">2</div>        
+                <div class=" class ch3">3</div>        
+                <div class=" class ch4">4</div>                
+                <div class=" class ch5">5</div>
+                <div class=" class ch6">6</div>
+                <div class=" class ch7">7</div>
+                <div class=" class ch8">8</div>
+                <div class=" class ch9">9</div>        
+                <div class=" class ch10">Del</div>        
+                <div class=" class ch11">0</div>        
+                <div class=" class ch12">ok</div>
+        </div>
+    </fieldset>
+</body>
+</html>

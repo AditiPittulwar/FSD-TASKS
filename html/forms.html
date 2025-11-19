@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORMS</title>
+</head>
+<body>
+    <form action="./welcome.html" method="">
+    <h1>Addmision Form</h1><br>
+    <lable for="fname"> First Name:</lable>
+    <input type="text" placeholder="Enter your Name" name="fname" id="fname" required>
+    <br><br>
+    <label for="Mname">Middle Name:</label>
+    <input type="text" placeholder="Enter your name" name="mname" id="Mname" required>
+    <br><br>
+    <label for="Lname">Last Name:</label>
+    <input type="text" placeholder="Enter your name" name="Lname" id="Lname" required>
+    <br><br>
+    <label for="DOB">Date of birth:</label>
+    <input type="datetime-local" placeholder="DOB" id="DOB" min="2000-12-31" max="2005-12-31">
+    <br><br>
+    <label for="phone">Enter phone number:</label>
+    <input for="tel" name="phone" required>
+    <br><br>
+    <lable for="email">Enter email id:</lable>
+    <input for="email" placeholder="Enter your email" name="enamiid" id="enamiid" required>
+    <br><br>
+    <label for="age">Enter age:</label>
+    <input type="number" placeholder="enter age" name="age" id="age" required>
+    <br><br>
+    <label for="qualification">Education Qualification:</label>
+    <input type="checkbox" name="qualification" id="qualification">
+    <label for="qualification">10th pass</label>
+    <input type="checkbox" name="10th pass" id="10th pass">
+    <label for="qualification">12th pass</label>
+    <input type="checkbox" name="12th pass" id="12th pass">
+    <label for="qualification">Graduate</label>
+    <input type="checkbox" name="Graduate" id="Graduate">
+    <br><br>
+    <label for="course">Select Course:</label>
+    <select name="course" id="various course">
+        <option value="IT Engineering">IT Engineering</option>
+        <option value="Mechincal Engineering">Mechincal Engineering</option>        
+        <option value="Civil Engineering">Civil Engineering</option>        
+        <option value="Eelectronic Engineering">Eelectronic Engineering</option>        
+        <option value="Chemical Engineering">Chemical Engineering</option>
+        <option value="Aerospace Engineering">Aerospace Engineering</option>
+    </select>
+    <br><br>
+    <label for="Personal Information">Write about yourself:</label>
+    <br><textarea name="my text" cols="20" rows="5"></textarea>
+    <br><br>
+    <label for="gsearch">Search Collage Information on google:</label><br>
+    <input type="search" name="gsearch" id="gsearch">
+    <br><br>
+    <input type="Reset" value="reset">
+    <input type="submit">
+    </form>
+</body>
+</html>

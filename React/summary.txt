@@ -1,0 +1,324 @@
+-----------------------------------------------REACT.JS------------------------------------------------------------------------
+
+DEFINATION:- React.js is a JavaScript library developed by Facebook (now Meta) for building user interfaces, 
+especially single-page applications (SPAs). It helps developers create reusable UI components that efficiently 
+update when data changes.
+
+React.js is an open-source JavaScript library for building user interfaces (UIs) using a component-based architecture 
+and a virtual Document Object Model (DOM) for efficient rendering. It is developed and maintained by Meta 
+(formerly Facebook) and a large community of developers and is popular for building dynamic single-page applications (SPAs).
+
+
+ Key Features:-
+
+
+ (a) Component-Based Architecture
+
+Definition: React applications are built using components, which are independent, reusable pieces of UI.
+
+Purpose: Each component controls its own logic and appearance.
+
+Types of Components:
+
+Functional Components: Simple JavaScript functions that return JSX.
+
+Class Components: Older style components using ES6 classes and lifecycle methods.
+
+Example:
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+
+
+(b) JSX (JavaScript XML)
+
+Definition: JSX is a syntax extension for JavaScript that allows writing HTML-like code inside JavaScript files.
+
+Purpose: Makes code easier to read and understand.
+
+Example:
+const element = <h1>Welcome to React</h1>;
+
+
+(c) Virtual DOM (Document Object Model)
+
+Definition: The Virtual DOM is an in-memory copy of the actual DOM that React uses to track changes.
+
+How it works:
+
+React keeps a virtual representation of the UI.
+
+When a component’s state changes, React compares the new Virtual DOM with the previous one (Diffing Algorithm).
+
+Only the changed elements are updated in the real DOM.
+
+Benefit: This makes React fast and efficient compared to direct DOM manipulation.
+
+
+(d) Declarative Programming
+
+Definition: React uses a declarative style, meaning you describe what the UI should look like for a given state, not how to change it.
+
+Example:
+const [loggedIn, setLoggedIn] = useState(false);
+return <p>{loggedIn ? "Welcome!" : "Please log in"}</p>;
+
+
+(e) Unidirectional Data Flow
+
+Definition: Data in React flows in one direction — from parent to child components through props.
+
+Purpose: Ensures predictable data handling and easier debugging.
+
+Example:
+function Child(props) {
+  return <p>{props.message}</p>;
+}
+
+function Parent() {
+  return <Child message="Hello from Parent" />;
+}
+
+
+(f) State and Props
+
+State:
+
+Data managed within a component (mutable).
+
+Changes in state trigger a re-render.
+
+Example:
+const [count, setCount] = useState(0);
+
+Props (Properties):
+
+Read-only data passed from parent to child components.
+
+Example:
+<Greeting name="Aditi" />
+
+
+(g) React Hooks
+
+Definition: Functions that let you “hook into” React’s features in functional components.
+
+Common Hooks:
+
+useState() – For managing local component state.
+
+useEffect() – For handling side effects like fetching data or manipulating the DOM.
+
+useContext() – For accessing global data without prop drilling.
+
+Example:
+
+import { useState, useEffect } from "react";
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    document.title = `Count: ${count}`;
+  });
+
+  return <button onClick={() => setCount(count + 1)}>+</button>;
+}
+
+ (h) Lifecycle Methods
+
+
+Definition: Special methods that get called at different stages of a 
+component’s life (Mounting, Updating, Unmounting).
+
+
+Example (Class Components):
+
+
+componentDidMount() → Runs after the component is added to the DOM.
+
+
+componentDidUpdate() → Runs after updates.
+
+
+componentWillUnmount() → Runs before the component is removed.
+
+
+
+(Hooks like useEffect replicate these in functional components.)
+
+ (i) React Router
+
+
+Definition: A library for navigation and routing in React apps.
+
+
+Purpose: Helps switch between pages without reloading the whole page.
+
+
+Example:
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+<BrowserRouter>
+  <Routes>
+    <Route path="/" element={<Home />} />
+    <Route path="/about" element={<About />} />
+  </Routes>
+</BrowserRouter>
+
+
+
+
+ (j) Redux (State Management Library)
+
+
+Definition: A predictable state management 
+tool used with React for handling complex app data.
+
+
+Concepts:
+
+
+Store: Central place where all app data is kept.
+
+
+Actions: Describe what you want to do.
+
+
+Reducers: Define how the state changes based on actions.
+
+
+
+
+(k) React Native
+
+
+Definition: A framework built on React for building mobile apps (Android/iOS)
+ using JavaScript and React syntax.
+
+
+
+ 3. Advantages of React.js
+
+ Fast and efficient due to Virtual DOM
+ Component reusability saves time
+ Easy to debug and maintain
+ Large community and ecosystem
+ Can be used for web and mobile apps
+
+
+ 4. Common Use Cases
+
+
+Single Page Applications (SPAs)
+
+
+Dynamic web dashboards
+
+
+Real-time web apps
+
+
+Mobile apps (with React Native)
+
+
+
+ 5. Related Tools
+
+
+React Router → Routing/navigation
+
+Redux / Zustand / Context API → State management
+
+Next.js → Server-side rendering (SSR)
+
+Vite / CRA → React app setup tools
+
+
+----------------------------------------What is JSX?---------------------------------------
+
+
+ JSX (JavaScript XML) is a syntax extension for JavaScript used in React.js to describe what the UI should look like.
+
+It allows you to write HTML-like code inside JavaScript — React then converts this JSX into normal JavaScript that the 
+browser understands.
+
+Example:
+
+Without JSX (pure JavaScript):
+
+const element = React.createElement('h1', null, 'Hello, World!');
+
+
+With JSX (simpler and cleaner):
+
+const element = <h1>Hello, World!</h1>;
+
+
+ Both do the same thing, but JSX is easier to read and write.
+
+ How JSX Works
+
+JSX is not directly understood by browsers.
+When you run your React app, Babel (a compiler) converts JSX into JavaScript.
+
+For example:
+
+const element = <h1>Hello</h1>;
+
+
+is transformed into:
+
+const element = React.createElement("h1", null, "Hello");
+
+ JSX Rules
+
+Must have one root element
+
+ Invalid
+return (
+  <h1>Hello</h1>
+  <p>World</p>
+);
+
+ Correct
+return (
+  <div>
+    <h1>Hello</h1>
+    <p>World</p>
+  </div>
+);
+
+
+Use className instead of class
+
+<div className="container"></div>
+
+
+JavaScript expressions go inside {}
+
+const name = "Aditi";
+return <h1>Hello, {name}!</h1>;
+
+
+Attributes in JSX use camelCase
+
+<button onClick={handleClick}>Click me</button>
+
+ Why Use JSX?
+
+  Easier to visualize UI structure
+  Mix HTML + JS logic in one place
+  Faster development
+  Helps with error checking via Babel
+
+ Example React Component Using JSX
+function Welcome() {
+  const user = "Aditi";
+  return (
+    <div>
+      <h1>Welcome, {user}!</h1>
+      <p>This is JSX in action </p>
+    </div>
+  );
+}

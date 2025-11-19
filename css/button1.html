@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: arial;
+        background-color: rgb(175, 175, 234);
+    }
+    .center{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .center a{
+        display: inherit;
+        width: 150px;
+        height: 50px;
+        color: #262626;
+        font-size: 25px;
+        background: transparent;
+        text-align: center;
+        line-height: 50px;
+        text-decoration: none;
+        border: 2px solid #262626 ;
+        transition: .5s;
+        transform: skew(20deg);
+    }
+    .center a:hover{
+        background-color: rgb(31, 46, 163);
+        color: #fff;
+    }
+    span:nth-child(1)
+    {
+        position: absolute;
+        width: 15px;
+        height: 100%;
+        border: 2px solid #262626;
+        top: 6px;
+        left: -19px;
+        transform: skewY(-45deg);
+    }
+    span:nth-child(1)
+    {
+        position: absolute;
+        width: 15px;
+        height: 100%;
+        border: 2px solid #262626;
+        top: 6px;
+        left: -19px;
+        transform: skewY(-45deg);
+    }
+    span:nth-child(2)
+    {
+        position: absolute;
+        width: 100%;
+        height: 15px;
+        border: 2px solid #262626;
+        background: #efefef;
+        right: 6px;
+        bottom: -19px;
+        transform: skewX(-45deg);
+        box-shadow: 0 40px 25px rgba(0,0,0,.4);
+    }
+</style>
+<body>
+    <div class="center">
+        <a href="#"><span></span><span></span>Click Here</a>
+    </div>
+</body>
+</html>

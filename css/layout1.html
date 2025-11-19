@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body
+    {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0;
+        padding-right: 0;
+        font-family: Arial,sans-serif;
+    }
+    .main{
+        width: 100%;
+        height: 80px;
+        background-color: black;
+    }
+    .main li
+    {
+        width: 100px;
+        height: 50px;
+        margin: 20px;
+        text-align: center;
+        background-color: rgb(15, 162, 37);
+        line-height: 50px;
+        float: left;
+        list-style: none;
+        gap: 5rem;
+
+    }
+    .main li a
+    {
+        display:block;
+        color:white;
+        text-decoration: none;
+
+    }
+    .button
+    {
+        float: left;
+        border-radius: 4px;
+        padding-top: 30px;
+        padding-right: 40px;
+        margin-top: 20px;
+        align-items: center;
+        justify-content: center;
+
+    }
+    .logo{
+        height: 20px;
+        width: 40px;
+        font-size: 28px;
+        align-items: center;
+        justify-content: baseline;
+    }
+    .types a{
+        margin: 5px 10px;
+        color: #333;
+        text-decoration: none;
+        font-size: 14px;
+    }
+    .types a:hover{
+        color: #007f5f;
+
+    }
+    .middle {
+  text-align: center;
+  padding: 80px 20px;
+  background-color: rgb(221, 206, 233);
+}
+
+.middle h1 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  width: 400px;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px 0 0 12px;
+  font-size: 16px;
+}
+
+.search-container .icon-btn {
+  padding: 12px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 12px 12px 0;
+  cursor: pointer;
+}
+
+.course-options {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.course-options button {
+  padding: 10px 16px;
+  border: 1px solid #aaa;
+  border-radius: 8px;
+  background: white;
+  cursor: pointer;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f8fdfb;
+  padding: 40px;
+}
+    h1 {
+      font-size: 36px;
+      color: #1a1a1a;
+      margin-bottom: 30px;
+    }
+
+    .courses {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+.courses-section {
+  display: flex;
+  justify-content: center;
+  gap: 90px;
+  flex-wrap: wrap;
+}
+
+.card {
+  width: 300px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.06);
+  overflow: hidden;
+  border: 1px solid #d8f2e0;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card-top {
+  position: relative;
+  color: white;
+  padding: 20px;
+  height: 150px;
+}
+
+.card-top .card-title {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.card-top .card-title small {
+  font-weight: normal;
+  font-size: 14px;
+}
+
+.rating {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #222;
+  color: #ffd700;
+  padding: 4px 8px;
+  font-size: 12px;
+  border-radius: 12px;
+}
+
+.purple {
+  background: linear-gradient(to right, #3f51b5, #673ab7);
+}
+
+.green {
+  background: linear-gradient(to right, #388e3c, #4caf50);
+}
+
+.blue {
+  background: linear-gradient(to right, #5c6bc0, #7986cb);
+}
+
+.card-content {
+  padding: 20px;
+}
+
+.card-content h3 {
+  font-size: 16px;
+  margin-bottom: 12px;
+  color: #222;
+}
+
+.card-content .level,
+.card-content .interest {
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.card-content a {
+  color: #1f6f4a;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.card-content a:hover {
+  text-decoration: underline;
+}
+</style>
+<body>
+    <ul class="main">
+        <li><a href="#"><b>Courses</b></a></li>
+        <li><a href="#"><b>Tutorial</b></li>
+        <li><a href="#"><b>practice</b></li>
+        <li><a href="#"><b>jobs</b></li>
+        <button class="button">Sing In</button>
+    </ul>
+    <div class="types">
+        <a href="#">DSA</a>
+        <a href="#">practice Problems</a>
+        <a href="#">C</a>         
+        <a href="#">C++</a>        
+        <a href="#">Java</a>       
+        <a href="#">Python</a>
+        <a href="#">JavaScript</a>        
+        <a href="#">Data Science</a>        
+        <a href="#">Machine Learning</a>        
+        <a href="#">Courses</a>        
+        <a href="#">Linux</a>        
+        <a href="#">DevOPS</a>        
+        <a href="#">SQL</a>        
+        <a href="#">Web Development</a>        
+        <a href="#">System Design</a>        
+    </div>
+    <section class="middle">
+    <h1>Hello, What Do You Want To Learn?</h1>
+    <div class="search-container">
+      <input type="text" placeholder="Type Anything..." />
+      <button class="icon-btn">🔍</button>
+    </div>
+    <div class="course-options">
+      <button>Full Stack Live Classes</button>
+      <button>DSA: Basic To Advanced Course</button>
+      <button>Master DS & ML</button>
+    </div>
+  </section>
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Course Cards</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Courses</h1>
+
+  <div class="courses">
+
+  <section class="courses-section">
+    <div class="card">
+      <div class="card-top purple">
+        <span class="card-title">Placement <br><small>with DSA</small></span>
+        <div class="rating">⭐ 3.5</div>
+      </div>
+      <div class="card-content">
+        <h3>Placement Taiyari With DSA</h3>
+        <p class="level">📊 Beginner to Advance</p>
+        <p class="interest">📈 14k+ interested Geeks</p>
+        <a href="#">Explore now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top green">
+        <span class="card-title">DSA <br><small>To Development</small></span>
+        <div class="rating">⭐ 4.4</div>
+      </div>
+      <div class="card-content">
+        <h3>DSA to Development: A Complete Guide</h3>
+        <p class="level">📊 Beginner to Advance</p>
+        <p class="interest">📈 631k+ interested Geeks</p>
+        <a href="#">Explore now</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-top blue">
+        <span class="card-title">Backend <br><small>Development</small></span>
+        <div class="rating">⭐ 4.7</div>
+      </div>
+      <div class="card-content">
+        <h3>JAVA Backend Development - Live</h3>
+        <p class="level">📊 Intermediate and Advance</p>
+        <p class="interest">📈 327k+ interested Geeks</p>
+        <a href="#">Explore now</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
+
+
+</body>
+</html>

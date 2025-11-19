@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form to Table</title>
+  <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+      padding: 8px;
+    }
+    th {
+      background: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+
+<h2>User Form</h2>
+<form id="userForm">
+  <input type="text" id="name" placeholder="Enter Name" required>
+  <input type="email" id="email" placeholder="Enter Email" required>
+  <input type="number" id="age" placeholder="Enter Age" required>
+  <button type="submit">Add</button>
+</form>
+
+<h2>User Table</h2>
+<table id="userTable">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Age</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+
+<div id="updateContainer" class="">
+        <div class="updateForm">
+            <button id="updateClose">X</button>
+            <form action="">
+                <input type="text">
+                <input type="text">
+                <input type="text">
+            </form>
+        </div>
+    </div>
+    
+<script src="./script1.js">
+</script>
+
+</body>
+</html>

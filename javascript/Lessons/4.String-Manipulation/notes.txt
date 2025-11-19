@@ -1,0 +1,104 @@
+
+A string in JavaScript is a sequence of characters (letters, numbers, symbols, spaces).
+
+Strings are written inside quotes:
+
+Single quotes: 'Hello'
+
+Double quotes: "Hello"
+
+Backticks (Template Literals): `Hello`
+
+Example:
+let str1 = "Hello";
+let str2 = 'World';
+let str3 = `Hello, ${str2}!`; // Template literal with variable
+console.log(str3); // Output: Hello, World!
+
+Creating Strings
+
+let name = "Aditi";       // using double quotes
+let city = 'Mumbai';      // using single quotes
+let message = `Hi ${name}, welcome to ${city}`; // template literal
+
+
+String Manipulation Prooerties and Methods
+
+1. Length of String
+
+let text = "JavaScript";
+console.log(text.length);  // 10
+
+2. Accessing Characters
+
+console.log(text[0]);  // J
+console.log(text.charAt(4)); // S
+
+3. Concatenation (Joining Strings)
+
+let first = "Hello";
+let second = "World";
+console.log(first + " " + second);   // Hello World
+console.log(`${first} ${second}`);   // Hello World (Template literal)
+
+4. Changing Case
+
+let word = "JavaScript";
+console.log(word.toUpperCase()); // JAVASCRIPT
+console.log(word.toLowerCase()); // javascript
+
+5. Searching
+
+let text2 = "I love JavaScript";
+console.log(text2.indexOf("love"));   // 2
+console.log(text2.includes("Java"));  // true
+
+6. Extracting Substrings
+
+let lang = "JavaScript";
+console.log(lang.slice(0, 4));   // Java
+console.log(lang.substring(4, 10)); // Script
+
+7. Replacing Text
+
+let sentence = "I like Python";
+console.log(sentence.replace("Python", "JavaScript")); 
+// I like JavaScript
+
+8. Splitting into Array
+
+let data = "red,green,blue";
+let colors = data.split(",");
+console.log(colors); // ["red", "green", "blue"]
+
+Special: Template Literals (ES6)
+
+Allow embedding variables and expressions using ${}.
+
+let name = "Aditi";
+let age = 21;
+console.log(`My name is ${name} and I am ${age} years old.`);
+// Output: My name is Aditi and I am 21 years old.
+
+Difference between slice and substring
+
+In JavaScript, both String.prototype.slice() and String.prototype.substring() methods are used to extract a portion of a string and return it as a new string, without modifying the original.
+ However, they differ in how they handle arguments, particularly negative indices and the order of start and end indices. 
+
+ 1. Handling of Negative Indices:
+slice(): Allows for negative indices. A negative index is treated as an offset from the end of the string. For example, str.slice(-3) extracts the last three characters.
+substring(): Treats any negative index as 0. 
+
+2. Handling of Start and End Indices Order:
+slice():
+If the startIndex is greater than the endIndex, slice() returns an empty string. The order of arguments matters.
+substring():
+If the startIndex is greater than the endIndex, substring() automatically swaps the two arguments internally before extracting the substring. 
+This means str.substring(4, 2) will produce the same result as str.substring(2, 4). 
+
+3. Optional Arguments:
+Both slice() and substring() can be called with only a startIndex argument, in which case they extract from the startIndex to the end of the string.
+
+In summary:
+Use slice() when you need to use negative indices to count from the end of the string or when you want strict behavior regarding the order of startIndex and endIndex.
+Use substring() when you prefer a more forgiving approach to argument order and don't require negative indexing.

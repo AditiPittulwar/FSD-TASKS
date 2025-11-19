@@ -1,0 +1,755 @@
+***MongoDB follows CRUD operations:**
+
+Create – Read – Update – Delete
+
+//Create Command
+
+The use command allows you to switch to an existing database or implicitly create a new one if it doesn't exist.
+
+In MongoDB, the create command is used to create a new collection explicitly in a database.
+
+Syntax
+
+ db.createCollection(<name>, <options>)
+ 
+
+1. use myDatabase
+
+2.Create a Collection 
+
+ db.createCollection("collection_name")
+
+3. Create Documents (Insert Data)
+
+Insert one document:
+db.collection.insertOne({ name: "Aditi", age: 22, city: "Pune" })
+
+Insert multiple documents:
+
+db.students.insertMany([
+
+    {
+        _id: 1,
+        name: "adii",
+        phone : 8468953713,
+        age : 20,
+        address: {
+            street: "opposite indira Hospital",
+            city: "Nagpur",
+            pincode: "440024",
+            state: "Maharashtra"
+        }
+    },
+    {
+_id: 2,
+        name: "mahii",
+        phone : 9022836184,
+        age : 20,
+        address: {
+            street: "plot 4, sharda layout",
+            city: "nagpur",
+            pincode: "440024",
+            state: "Maharashtra"
+        }
+    },
+    {
+_id: 3,
+        name: "Sumedh",
+        phone : 9131300381,
+        age : 20,
+        address: {
+            street: " NearNTT office",
+            city: "Mumbai",
+            pincode: "440025",
+            state:"Maharashtra"
+        }
+    }
+])
+
+db -> ecommerce website
+
+*customers*
+
+db.customers.insertMany([
+    {_id: 01, name:"Nikhil Sawant", phone: "8468953214", address:"Kharbi Square"},
+    {_id: 02, name:"pooja Ganer", phone: "8461243214", address:"omkar Square"},
+    {_id: 03, name:"shena awchat", phone: "8468953267", address:"trimurti Square"}
+])
+
+*Products*
+
+db.products.insertMany([
+  { 
+    name: "Wireless Mouse", 
+    category_id: ObjectId(), 
+    price: 799, 
+    stock: 50, 
+    brand: "Logitech", 
+    description: "Ergonomic wireless mouse with USB receiver"
+  },
+  { 
+    name: "Bluetooth Headphones", 
+    category_id: ObjectId(), 
+    price: 1999, 
+    stock: 30, 
+    brand: "Boat", 
+    description: "Over-ear headphones with 12-hour battery life"
+  }
+])
+
+*orders*
+
+db.orders.insertOne({
+ 
+ _id: 301,
+ boughtBy: {customerId: 14}
+ products:[
+    {productId: 20, qty: 3, subTotal: 100}
+    {productId: 02, qty: 2, subTotal: 234.34}
+ ],
+ shipingAddress:{
+    street: "plot 101, sanjay gandhi nagar",
+    city: "nagpur",
+    pincode: "440024",
+    state: "Maharashtra"
+},
+timeStamp: Date.now()
+})
+
+//read
+
+db.collection.findOne() -> null / ObjectId
+db.collection.find() -> [] / [object/s]
+
+query
+
+{} -> un conditionally -> everything
+
+{field: "match something"}
+
+1. Comparison Operators
+
+Operator	    Description	            Example
+1.$eq	              Equal to	        db.products.find({ price: { $eq: 1000 } })
+2.$ne	            Not equal to	    db.products.find({ brand: { $ne: "Boat" } })
+3.$gt	            Greater than	    db.products.find({ price: { $gt: 1000 } })
+4.$gte	   Greater than or equal	db.products.find({ price: { $gte: 1000 } })
+5.$lt	          Less than	            db.products.find({ price: { $lt: 1000 } })
+6.$lte	   Less than or equal	    db.products.find({ price: { $lte: 2000 } })
+7.$in	  Matches any value in an array	db.products.find({ category: { $in: ["Electronics", "Fashion"] } })
+8.$nin	    Not in array	        db.products.find({ brand: { $nin: ["Boat", "Sony"] } })
+
+
+1..db.products.find({ selling_price: { $gt: 30 } })
+[
+  { _id: 13, name: 'Book', stock: 100, selling_price: 45, discount: 5 },
+  {
+    _id: 14,
+    name: 'Marker',
+    stock: 100,
+    selling_price: 55,
+    discount: 5
+  }
+]
+
+2..db.products.find({ selling_price: { $gte: 45 } })
+[
+  { _id: 13, name: 'Book', stock: 100, selling_price: 45, discount: 5 },
+  {
+    _id: 14,
+    name: 'Marker',
+    stock: 100,
+    selling_price: 55,
+    discount: 5
+  }
+]
+
+3..db.products.find({ selling_price: { $lt: 45 } })[
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discount: 5
+  },
+  { _id: 12, name: 'pen', stock: 100, selling_price: 30, discount: 5 }
+]
+
+4..db.products.find({ selling_price: { $lte: 30 } })[
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discount: 5
+  },
+  { _id: 12, name: 'pen', stock: 100, selling_price: 30, discount: 5 }
+]
+
+5..db.products.find({ selling_price: { $in: [20, 45] } })[
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discount: 5
+  },
+  { _id: 13, name: 'Book', stock: 100, selling_price: 45, discount: 5 }
+]
+
+db.products.find({selling_price: {$in: [20, 55]}})
+[
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discont: 5
+  },
+  {
+    _id: 14,
+    name: 'Marker',
+    stock: 100,
+    selling_price: 55,
+    discont: 5
+  }
+]
+
+6..db.products.find({ selling_price: { $nin: [20, 55] } })
+[
+  { _id: 12, name: 'pen', stock: 100, selling_price: 30, discount: 5 },
+  { _id: 13, name: 'Book', stock: 100, selling_price: 45, discount: 5 },
+  {
+    _id: ObjectId('68efbd3745580bc6d6cebea4'),
+    name: 'pen',
+    discount: 5
+  },
+  { _id: 15, name: 'pen', discount: 5 }
+]
+
+db.products.find({selling_price: {$nin: [20, 55]}})
+[
+  { _id: 12, name: 'pen', stock: 100, selling_price: 30, discont: 5 },
+  {
+    _id: 13,
+    name: 'Book',
+    stock: 100,
+    selling_price: 45,
+    discont: 5
+  }
+]
+
+7..db.products.find({ selling_price: { $eq: 30 } })[
+  { _id: 12, name: 'pen', stock: 100, selling_price: 30, discount: 5 }
+]
+
+8..db.products.find({ selling_price: { $ne: 30 } })
+[
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discount: 5
+  },
+  { _id: 13, name: 'Book', stock: 100, selling_price: 45, discount: 5 },
+  {
+    _id: 14,
+    name: 'Marker',
+    stock: 100,
+    selling_price: 55,
+    discount: 5
+  },
+  {
+    _id: ObjectId('68efbd3745580bc6d6cebea4'),
+    name: 'pen',
+    discount: 5
+  },
+  { _id: 15, name: 'pen', discount: 5 }
+]
+
+
+logical oprators
+
+$and
+$or
+$nor
+$not
+
+$or:
+db.products.find({ $or :[ {selling_price:  20} , {selling_price : {$gte:35}} ]})
+[
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discount: 5
+  },
+  { _id: 13, name: 'Book', stock: 100, selling_price: 45, discount: 5 },
+  {
+    _id: 14,
+    name: 'Marker',
+    stock: 100,
+    selling_price: 55,
+    discount: 5
+  }
+]
+
+$not:
+db.products.find({ selling_price: { $not: { $gt: 40 } } })
+[
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discount: 5
+  },
+  { _id: 12, name: 'pen', stock: 100, selling_price: 30, discount: 5 },
+  {
+    _id: ObjectId('68efbd3745580bc6d6cebea4'),
+    name: 'pen',
+    discount: 5
+  },
+  { _id: 15, name: 'pen', discount: 5 }
+]
+
+$nor:
+db.products.find({ $nor: [{ name: "pen" }, { selling_price: { $gt: 50 } }] })
+[
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discount: 5
+  },
+  { _id: 13, name: 'Book', stock: 100, selling_price: 45, discount: 5 }
+]
+
+
+find({query},{projection}).count()
+find({query},{projection}).limit(number)
+find({query},{projection}).sort({field: -1(decending)/1(Ascending)})
+
+Projection:
+db.products.find({}, { selling_price: 1, _id: 0 })
+[
+  { selling_price: 20 },
+  { selling_price: 30 },
+  { selling_price: 45 },
+  { selling_price: 55 },
+  {},
+  {}
+]
+
+Count:
+db.products.countDocuments()
+6
+
+ db.products.find(
+   { $nor: [{ name: "pen" }, { selling_price: { $gt: 50 } }] },
+   { name: 1, _id: 0 }
+ ).count()
+
+2
+
+Limit:
+ db.products.find().limit(2)
+[
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discount: 5
+  },
+  { _id: 12, name: 'pen', stock: 100, selling_price: 30, discount: 5 }
+]
+
+sort:Ascending
+db.products.find().sort({ selling_price: 1 })
+[
+  {
+    _id: ObjectId('68efbd3745580bc6d6cebea4'),
+    name: 'pen',
+    discount: 5
+  },
+  { _id: 15, name: 'pen', discount: 5 },
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discount: 5
+  },
+  { _id: 12, name: 'pen', stock: 100, selling_price: 30, discount: 5 },
+  { _id: 13, name: 'Book', stock: 100, selling_price: 45, discount: 5 },
+  {
+    _id: 14,
+    name: 'Marker',
+    stock: 100,
+    selling_price: 55,
+    discount: 5
+  }
+]
+
+sort:decending
+db.products.find().sort({ selling_price: -1 })
+[
+  {
+    _id: 14,
+    name: 'Marker',
+    stock: 100,
+    selling_price: 55,
+    discount: 5
+  },
+  { _id: 13, name: 'Book', stock: 100, selling_price: 45, discount: 5 },
+  { _id: 12, name: 'pen', stock: 100, selling_price: 30, discount: 5 },
+  {
+    _id: 11,
+    name: 'pencil',
+    stock: 100,
+    selling_price: 20,
+    discount: 5
+  },
+  {
+    _id: ObjectId('68efbd3745580bc6d6cebea4'),
+    name: 'pen',
+    discount: 5
+  },
+  { _id: 15, name: 'pen', discount: 5 }
+]
+
+Array operations
+
+[1.example]
+db.languages.find({scope:"Web Development"})
+[
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebea4'),
+    id: 1,
+    name: 'JavaScript',
+    duration: '3 months',
+    difficulty: 'Medium',
+    scope: [ 'Web Development', 'Frontend', 'Backend', 'Full Stack' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebea5'),
+    id: 2,
+    name: 'Python',
+    duration: '3 months',
+    difficulty: 'Easy',
+    scope: [ 'Data Science', 'AI', 'Web Development', 'Automation' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebeaa'),
+    id: 7,
+    name: 'PHP',
+    duration: '3 months',
+    difficulty: 'Medium',
+    scope: [ 'Web Development', 'Backend', 'CMS' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebeab'),
+    id: 8,
+    name: 'Ruby',
+    duration: '3 months',
+    difficulty: 'Medium',
+    scope: [ 'Web Development', 'Backend' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebed0'),
+    id: 45,
+    name: 'Flask',
+    duration: '2 months',
+    difficulty: 'Easy',
+    scope: [ 'Web Development', 'APIs', 'Backend' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebed1'),
+    id: 46,
+    name: 'Django',
+    duration: '3 months',
+    difficulty: 'Medium',
+    scope: [ 'Web Development', 'Backend', 'Full Stack' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebed4'),
+    id: 49,
+    name: 'ASP.NET',
+    duration: '3 months',
+    difficulty: 'Medium',
+    scope: [ 'Web Development', 'Enterprise Apps' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebeda'),
+    id: 55,
+    name: 'jQuery',
+    duration: '1 month',
+    difficulty: 'Easy',
+    scope: [ 'Frontend', 'Web Development' ]
+  }
+]
+
+[2.example]
+db.languages.find({ $or:[{scope:"Web Servers"},{scope:"Database"}]})
+[
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebec0'),
+    id: 29,
+    name: 'MongoDB',
+    duration: '1 month',
+    difficulty: 'Easy',
+    scope: [ 'Database', 'Full Stack' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebec1'),
+    id: 30,
+    name: 'MySQL',
+    duration: '1 month',
+    difficulty: 'Easy',
+    scope: [ 'Database', 'Backend' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebec2'),
+    id: 31,
+    name: 'PostgreSQL',
+    duration: '1 month',
+    difficulty: 'Medium',
+    scope: [ 'Database', 'Backend' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebf03'),
+    id: 96,
+    name: 'Nginx',
+    duration: '2 months',
+    difficulty: 'Medium',
+    scope: [ 'Web Servers', 'Load Balancing' ]
+  },
+  {
+    _id: ObjectId('68f130bbd4d2b7d9eecebf04'),
+    id: 97,
+    name: 'Apache',
+    duration: '2 months',
+    difficulty: 'Medium',
+    scope: [ 'Web Servers', 'Hosting' ]
+  }
+]
+
+ElemMatch : more than one query in Array
+
+[1.example]
+db.studentsData.insertMany([
+  {
+    name: "student1",
+    roll: 1,
+    subjects: [
+      { name: "english", score: 70 },
+      { name: "maths", score: 40 },
+      { name: "science", score: 45 },
+      { name: "history", score: 48 }
+    ]
+  },
+  {
+    name: "student2",
+    roll: 2,
+    subjects: [
+      { name: "Civics", score: 40 },
+      { name: "maths", score: 30 },
+      { name: "Hindi", score: 35 },
+      { name: "history", score: 48 }
+    ]
+  }
+]);
+
+[2.example]
+db.studentsData.find({
+   subjects: {
+     $elemMatch: {
+       name: "maths",
+       score: { $lt: 40 }
+     }
+   }
+ });
+
+[
+  {
+    _id: ObjectId('68f135ced4d2b7d9eecebf0a'),
+    name: 'student2',
+    roll: 2,
+    subjects: [
+      { name: 'Civics', score: 40 },
+      { name: 'maths', score: 30 },
+      { name: 'Hindi', score: 35 },
+      { name: 'history', score: 48 }
+    ]
+  },
+  {
+    _id: ObjectId('68f1361ad4d2b7d9eecebf0c'),
+    name: 'student2',
+    roll: 2,
+    subjects: [
+      { name: 'Civics', score: 40 },
+      { name: 'maths', score: 30 },
+      { name: 'Hindi', score: 35 },
+      { name: 'history', score: 48 }
+    ]
+  },
+  {
+    _id: ObjectId('68f13786d4d2b7d9eecebf0e'),
+    name: 'student2',
+    roll: 2,
+    subjects: [
+      { name: 'Civics', score: 40 },
+      { name: 'maths', score: 30 },
+      { name: 'Hindi', score: 35 },
+      { name: 'history', score: 48 }
+    ]
+  }
+]
+
+[3.example]
+ db.studentsData.find({
+  subjects: {
+    $elemMatch: {
+      score: { $gte: 40, $lte: 50 }
+    }
+  }
+    });
+
+[
+  {
+    _id: ObjectId('68f135ced4d2b7d9eecebf09'),
+    name: 'student1',
+    roll: 1,
+    subjects: [
+      { name: 'english', score: 50 },
+      { name: 'maths', score: 40 },
+      { name: 'science', score: 45 },
+      { name: 'history', score: 48 }
+    ]
+  },
+  {
+    _id: ObjectId('68f135ced4d2b7d9eecebf0a'),
+    name: 'student2',
+    roll: 2,
+    subjects: [
+      { name: 'Civics', score: 40 },
+      { name: 'maths', score: 30 },
+      { name: 'Hindi', score: 35 },
+      { name: 'history', score: 48 }
+    ]
+  },
+  {
+    _id: ObjectId('68f1361ad4d2b7d9eecebf0b'),
+    name: 'student1',
+    roll: 1,
+    subjects: [
+      { name: 'english', score: 70 },
+      { name: 'maths', score: 40 },
+      { name: 'science', score: 45 },
+      { name: 'history', score: 48 }
+    ]
+  },
+  {
+    _id: ObjectId('68f1361ad4d2b7d9eecebf0c'),
+    name: 'student2',
+    roll: 2,
+    subjects: [
+      { name: 'Civics', score: 40 },
+      { name: 'maths', score: 30 },
+      { name: 'Hindi', score: 35 },
+      { name: 'history', score: 48 }
+    ]
+  },
+  {
+    _id: ObjectId('68f13786d4d2b7d9eecebf0d'),
+    name: 'student1',
+    roll: 1,
+    subjects: [
+      { name: 'english', score: 70 },
+      { name: 'maths', score: 40 },
+      { name: 'science', score: 45 },
+      { name: 'history', score: 48 }
+    ]
+  },
+  {
+    _id: ObjectId('68f13786d4d2b7d9eecebf0e'),
+    name: 'student2',
+    roll: 2,
+    subjects: [
+      { name: 'Civics', score: 40 },
+      { name: 'maths', score: 30 },
+      { name: 'Hindi', score: 35 },
+      { name: 'history', score: 48 }
+    ]
+  }
+]
+
+//update
+$set : will create a new field
+$unset : will remove field
+
+[1.example]
+db.language.updateMany({}, { $set: { rating: 0 } })
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+[2.example]
+ db.languages.find({scope:{$size:3}}).count()
+52
+
+[3.example]
+ db.languages.find({
+   $expr: { $ne: [ { $size: "$scope" }, 3 ] }
+ }).count()
+
+48
+
+[4.example]
+db.students.updateMany(
+   {},
+   { $unset: { address: "", phone: "" } }
+ )
+
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 0,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+[5.example]
+db.languages.updateMany({
+   scope : {$not: {$size : 3} }
+ },{$unset: {rating : 0}})
+
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 48,
+  modifiedCount: 0,
+  upsertedCount: 0
+}
+
+//delete
+
+[1.example]
+db.language.deleteOne({})
+{ acknowledged: true, deletedCount: 0 }
+
+[2.example]
+db.students.drop()
+true
+
+[3.example]
+ db.students.deleteMany({})
+{ acknowledged: true, deletedCount: 2 }

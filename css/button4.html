@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>notify</title>
+    <link rel="stylesheet" href="https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.veryicon.com%2Ficons%2Fobject%2Fmaterial-design-icons%2Fnotifications-1.html&psig=AOvVaw10gbuhOjzxPzY14rqNWF7c&ust=1750916719309000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCLivgpvvi44DFQAAAAAdAAAAABAE">
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to right,#267871,#136);
+    }
+    .center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .notification{
+        width: 50px;
+        height: 50px;
+        background: white;
+        border-radius: 50%;
+        position: relative;
+    }
+    .num{
+        position: absolute;
+        top: -2px;
+        right: -2px;
+        background:rgb(230,85,85) ;
+        width:20px ;
+        height: 20px;
+        border-radius: 50%;
+        color: white;
+    }
+    .notification input
+    {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        cursor: pointer;
+        appearance: none;
+        -webkit-appearance: none;
+    }
+    .notification input::before
+    {
+        position: absolute;
+        content: '\f0f3';
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        font-family: 'Font Awesome 5 Free';
+        font-weight: 700;
+        font-size: 1.8em;
+        color: rgb(43,43,43);
+    }
+    .notification .box
+    {
+        width: 200px;
+        height: 250px;
+        background: #fff;
+        position: absolute;
+        border-radius: 20px;
+        top: -250px;
+        left: -200px;
+        clip-path: circle(0% at 100% 100%);
+        transition: clip-path 0.4s;
+    }
+    .notification input:checked ~ .box
+    {
+        clip-path: circle(145% at 100% 100%);
+
+    }
+    .notification .heading
+    {
+        margin: 0.2em auto;
+        background: rgb(43,43,43);
+        border-radius: 18px;
+        color: #fff;
+        box-shadow:  0 0 10px rgba(0,0,0,0.432);
+        height: 40px;
+        width: 95%;
+
+    }
+    .notification_box
+    {
+        margin:0.4em auto 0 auto ;
+        width: 85%;
+        height: 190px;
+        overflow-x:auto ;
+    }
+    .notification_box p
+    {
+        margin-bottom: 0.4em;
+        color: rgb(43,43,43);
+    }
+    .notification_box ::-webkit-scrollbar
+    {
+        width: 2px;
+    }
+    .notification_box ::-webkit-scrollbar-thumb
+    {
+        background: #f1f1f1;
+    }
+        .notification_box ::-webkit-scrollbar-thumb
+    {
+        background: #888;
+    }
+    .notification_box::-webkit-scrollbar-thumb:hover
+    {
+        background: #555;
+    }
+
+    
+</style>
+<body>
+     <div class="notification center">
+        <img src="./search.png" height="20px" width="20px">
+        <input type="checkbox" name="" id="">
+        <div class="num  number center">7</div>
+        <div class="box">
+            <div class="heading center">
+                <p><i class="fas fa-bell"><span class="number">7</span>Notification</i></p>
+            </div>
+            <div class="notification_box">
+                <p><i class="fas fa-user"></i>Some linked your photo</p>
+                <p><i class="fas fa-user"></i>Some linked your photo</p>                
+                <p><i class="fas fa-user"></i>Some linked your photo</p>                
+                <p><i class="fas fa-user"></i>Some linked your photo</p>
+                <p><i class="fas fa-user"></i>Some linked your photo</p>                
+                <p><i class="fas fa-user"></i>Some linked your photo</p>
+                <p><i class="fas fa-user"></i>Some linked your photo</p>
+
+                
+             </div>
+        </div>
+     </div>
+
+     <script>
+        const box=document.querySelectorAll('.notification_box p');
+        const number=document.querySelectorAll('number');
+        console.log(box.length);
+
+        number.forEach((e)=> 
+        { e.innerText = box.length;
+
+        })
+     </script>
+
+</body>
+</html>

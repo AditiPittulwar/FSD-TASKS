@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=div, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+    }
+    .dropdown-container{
+        width: fit-content;
+        border: 1px solid black;
+        padding: 1rem;
+        margin: 5rem auto;
+        position: relative;
+    }
+
+    .dropdown-container:hover> .target{
+        display: block;
+    }
+    .target{
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        text-align: center;
+        padding: 2rem;
+        background-color: rgb(51, 72, 210);
+        color: white;
+    }
+</style>
+<body>
+    <div class="dropdown-container">
+        <button class="trigger">hover to show dropdown</button>
+        <div class="target">
+            this is dropdown content
+        </div>
+    </div>
+</body>
+</html>
