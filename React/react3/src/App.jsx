@@ -1,17 +1,12 @@
-import React from 'react';
-import Home from './components/Home';
+import React from "react";
+import Comp2 from "./components/Comp2";
 
-function App() {
+const App = () => {
   return (
-    <>
-      <Home />
-
-      <button className="btn btn-primary shadow">
-        Box Shadow Button
-      </button>
-    </>
+    <div className="min-h-screen bg-gray-100 flex justify-center items-start py-10">
+      <Comp2 />
+    </div>
   );
-}
+};
 
 export default App;
-
